@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My Test Extension Options</title>
+</head>
+
+<body>
+	<section>
+		<h2>Name</h2>
+		<div class="radio controlled-setting-with-label">
+			<label>
+				<input type="radio" name="options.name" value="automatic" v-model="options.name"></input>
+				<span>Dynamic (use description if defined otherwise use the file name)</span>
+			</label>
+		</div>
+		<div class="radio controlled-setting-with-label">
+			<label>
+				<input type="radio" name="options.name" value="file" v-model="options.name"></input>
+				<span>Always use the name of the first file</span>
+			</label>
+		</div>
+	</section>
+	<section>
+		<h2>Visibility</h2>
+		<div class="radio controlled-setting-with-label">
+			<label>
+				<input type="radio" name="options.privacy" value="automatic" v-model="options.privacy"></input>
+				<span>Same as gist</span>
+			</label>
+		</div>
+		<div class="radio controlled-setting-with-label">
+			<label>
+				<input type="radio" name="options.privacy" value="public" v-model="options.privacy"></input>
+				<span>Public</span>
+			</label>
+		</div>
+		<div class="radio controlled-setting-with-label">
+			<label>
+				<input type="radio" name="options.privacy" value="private" v-model="options.privacy"></input>
+				<span>Private</span>
+			</label>
+		</div>
+	</section>
+	<section>
+		<h2>Import</h2>
+		<div>
+			<div class="checkbox controlled-setting-with-label">
+				<label>
+					<input type="checkbox" v-model="options.autosubmit">
+					<span>Start automatically</span>
+				</label>
+			</div>
+		</div>
+	</section>
+
+	<!-- <button @click="save_options">Save</button> -->
+	<!-- <div>{{UI.status}}</div> -->
+	<script src="js/options.js"></script>
+</body>
+
+</html>

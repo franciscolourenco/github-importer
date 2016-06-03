@@ -1,0 +1,43 @@
+{
+  "name": "github-importer",
+  "version": "0.1.0",
+  "description": " ",
+  "main": "index.js",
+  "author": "Francisco Lourenco",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "globify 'src/coffee/*.coffee' --debug --watch --verbose --outfile 'src/js/*.js'",
+    "prebuild": "npm run clean && cp -R src dist",
+    "build": "cd dist/coffee/ && for f in *.coffee; do f=${f%%.*}; cross-env NODE_ENV=production browserify ${f}.coffee | uglifyjs -c warnings=false -m > ../js/${f}.js; done",
+    "build:withsourcemaps": "cd dist/coffee/ && for f in *.coffee; do f=${f%%.*}; cross-env NODE_ENV=production browserify ${f}.coffee --debug | exorcist ../js/${f}.js.map > ../js/${f}.js && uglifyjs ../js/${f}.js -c warnings=false -m --in-source-map ../js/${f}.js.map --source-map ../js/${f}.js.map -o ../js/${f}.js; done",
+    "postbuild": "rm -rf dist/node_modules && rm -rf dist/coffee && npm run postcss",
+    "clean": "rm -rf dist",
+    "postcss": "postcss --use autoprefixer --use cssnano --no-cssnano.discardUnused --replace dist/css/*.css",
+    "release": "zip -r releases/v$npm_package_version.zip dist"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
+  "repository": " ",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "browserify": "^13.0.0",
+    "coffeeify": "^2.0.1",
+    "cross-env": "^1.0.7",
+    "cssnano": "^3.6.2",
+    "globify": "^1.2.1",
+    "postcss": "^5.0.21",
+    "postcss-cli": "^2.5.2",
+    "uglifyjs2": "0.0.1",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "js-cookie": "^2.1.0",
+    "lodash": "^4.3.0",
+    "query-string": "^3.0.0",
+    "vue": "^1.0.16"
+  }
+}

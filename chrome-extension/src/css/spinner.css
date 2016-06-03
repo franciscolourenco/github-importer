@@ -1,0 +1,51 @@
+body {
+	background: #F5F5F5;
+	/*opacity: 50%;*/
+}
+
+.message {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-align: center;
+	color: #888888;
+}
+.octicon {
+	fill: #222;
+	position: absolute;
+	margin:auto;
+	left:0;
+	top:0;
+	right: 0;
+	bottom: 0;
+	/*height: 700px;*/
+	/*width: 700px;*/
+}
+
+.spinner-box {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left:0;
+	right:0;
+	margin: auto;
+}
+
+.spinner {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	display: block;
+	animation: sk-scaleout 1.2s infinite ease-in-out;
+}
+
+@keyframes sk-scaleout {
+	0% {
+		opacity: 0.9;
+		transform: scale(0);
+	} 100% {
+		transform: scale(1.0);
+		opacity: 0;
+	}
+}

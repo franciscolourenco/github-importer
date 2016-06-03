@@ -1,0 +1,36 @@
+{
+	"name": "Gist 2 Github",
+	"version": "0.1.0",
+	"description": "Convert a gist into a github repository",
+	"content_scripts": [
+		{
+			"matches": ["*://gist.github.com/*"],
+			"js": ["js/content-gist.js"],
+			"all_frames": true,
+			"run_at": "document_end"
+		},
+		{
+			"matches": ["*://import.github.com/*"],
+			"js": ["js/content-import.js"],
+			"all_frames": true,
+			"run_at": "document_end"
+		}
+	],
+	"background": {
+	  "scripts": ["js/eventPage.js"],
+	  "persistent": false
+	},
+	"permissions": [
+		 "storage",
+		 "*://gist.github.com/*",
+		 "*://import.github.com/*"
+	],
+	"options_ui": {
+		"page": "options.html",
+		"chrome_style": true
+	},
+	"web_accessible_resources":["spinner.html"],
+	"manifest_version": 2,
+	"homepage_url": "https://www.google.com",
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
