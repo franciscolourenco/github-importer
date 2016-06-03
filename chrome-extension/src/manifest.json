@@ -10,7 +10,7 @@
 			"run_at": "document_end"
 		},
 		{
-			"matches": ["*://import.github.com/*"],
+			"matches": ["*://github.com/new/import/*"],
 			"js": ["js/content-import.js"],
 			"all_frames": true,
 			"run_at": "document_end"
@@ -23,7 +23,7 @@
 	"permissions": [
 		 "storage",
 		 "*://gist.github.com/*",
-		 "*://import.github.com/*"
+		 "*://github.com/new/import/*"
 	],
 	"options_ui": {
 		"page": "options.html",
