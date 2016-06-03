@@ -13,7 +13,7 @@
     "postbuild": "rm -rf dist/node_modules && rm -rf dist/coffee && npm run postcss",
     "clean": "rm -rf dist",
     "postcss": "postcss --use autoprefixer --use cssnano --no-cssnano.discardUnused --replace dist/css/*.css",
-    "release": "zip -r releases/v$npm_package_version.zip dist"
+    "release": "mkdir -p releases && zip -r releases/v$npm_package_version.zip dist"
   },
   "browserify": {
     "transform": [
