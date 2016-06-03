@@ -7,7 +7,7 @@ chrome.storage.sync.get 'options', (results) ->
 	firstFile = document.querySelector('.gist-blob-name')?.innerText
 	query = queryString.stringify(
 		name: if options.name is 'automatic' then document.title else firstFile
-		gist: window.location.href + '.git'
+		url: window.location.href + '.git'
 		private: document.querySelector('.gist-secret-label')?
 		gist2github: 'true'
 	)

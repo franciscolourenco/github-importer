@@ -29,7 +29,7 @@ chrome.storage.sync.get 'options', (results) ->
 
 	# gist2github button was pressed on gist
 	if query.gist2github?
-		DOM.url.value = query.gist
+		DOM.url.value = query.url
 		DOM.name.value = query.name
 
 		if (options.privacy is 'automatic' and query.private is 'true') or (options.privacy is 'private')
