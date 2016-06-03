@@ -35,7 +35,7 @@ chrome.storage.sync.get 'options', (results) ->
 		if (options.privacy is 'automatic' and query.private is 'true') or (options.privacy is 'private')
 			DOM.private.click()
 
-		if options.autosubmit then DOM.form.submit()lllllll
+		if options.autosubmit then DOM.form.submit()
 
 
 
