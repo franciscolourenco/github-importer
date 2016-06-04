@@ -1,8 +1,9 @@
 queryString = require('query-string')
 
 chrome.storage.sync.get 'options', (results) ->
-	options = results.options
+	return false if document.querySelector('.file-navigation-options') is null
 
+	options = results.options
 	description = document.querySelector('.repository-meta-content')?.innerText.replace(' ', '-')
 	firstFile = document.querySelector('.gist-blob-name')?.innerText
 	query = queryString.stringify(
